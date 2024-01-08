@@ -60,8 +60,9 @@ class _GameWheelState extends State<GameWheel> {
         padding: const EdgeInsets.all(12),
         child: Column(
           children: [
-            SizedBox(
+            Container(
               height: 400,
+              margin: const EdgeInsets.only(top: 30, bottom: 50),
               child: FortuneWheel(
                 duration: _duration,
                 selected: _selected.stream,
@@ -77,7 +78,6 @@ class _GameWheelState extends State<GameWheel> {
                 ],
               ),
             ),
-            const SizedBox(height: 50),
             ElevatedButton.icon(
               onPressed: _onWheelFling,
               label: const Text(
@@ -89,6 +89,8 @@ class _GameWheelState extends State<GameWheel> {
               icon: const Icon(Icons.rotate_left_rounded),
             ),
             Container(
+              width: 250,
+              alignment: Alignment.center,
               margin: const EdgeInsets.all(30),
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
@@ -98,6 +100,8 @@ class _GameWheelState extends State<GameWheel> {
               child: Text(
                 _selectedItem,
                 style: _boldWhite.copyWith(fontSize: 20),
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
               ),
             ),
             const Spacer(),
